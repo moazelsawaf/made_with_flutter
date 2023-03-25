@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'ui/screens/home_screen/home_screen.dart';
+import 'utils/colors_palette.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -7,14 +10,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Made with Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Material App Bar'),
-        ),
-        body: const Center(
-          child: Text('Hello World'),
+      theme: ThemeData(
+        useMaterial3: true,
+        primaryColor: ColorsPalette.primaryColor,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: ColorsPalette.primarySwatch,
+        ).copyWith(
+          secondary: ColorsPalette.secondaryColor,
         ),
       ),
+      home: const HomeScreen(),
     );
   }
 }
