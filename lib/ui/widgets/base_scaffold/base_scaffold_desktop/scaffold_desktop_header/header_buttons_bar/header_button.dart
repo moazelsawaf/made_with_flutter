@@ -26,6 +26,7 @@ class HeaderButton extends StatelessWidget {
         ),
         foregroundColor: ColorsPalette.black,
         backgroundColor: ColorsPalette.white,
+        shadowColor: Colors.transparent,
         textStyle: const TextStyle(
           fontWeight: FontWeight.w500,
         ),

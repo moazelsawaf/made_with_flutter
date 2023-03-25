@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:made_with_flutter/ui/widgets/app_logo.dart';
 
 import 'header_buttons_bar/header_buttons_bar.dart';
 
-class ScaffoldHeaderDesktop extends StatelessWidget {
-  const ScaffoldHeaderDesktop({
+class ScaffoldDesktopHeader extends StatelessWidget {
+  const ScaffoldDesktopHeader({
     super.key,
   });
 
@@ -13,11 +14,7 @@ class ScaffoldHeaderDesktop extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       child: Row(
         children: [
-          // TODO: Replace with the logo
-          const ColorFiltered(
-            colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-            child: FlutterLogo(size: 50),
-          ),
+          const AppLogo(),
           const Spacer(),
           HeaderButtonsBar(
             buttons: [

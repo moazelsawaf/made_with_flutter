@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ScaffoldCreditsDesktop extends StatelessWidget {
-  const ScaffoldCreditsDesktop({
+class Credits extends StatelessWidget {
+  const Credits({
     super.key,
   });
 
