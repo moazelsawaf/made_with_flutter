@@ -25,7 +25,8 @@ class BaseScaffoldDesktop extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.all(16),
                 child: Credits(
-                  linkColor: ColorsPalette.secondaryColor,
+                  color: ColorsPalette.white,
+                  linkColor: ColorsPalette.white,
                 ),
               ),
             ],

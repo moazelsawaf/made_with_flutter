@@ -3,27 +3,27 @@ import 'package:flutter/material.dart';
 class ColorsPalette {
   ColorsPalette._();
 
-  static const _primaryColorValue = 0xFF42A5F6;
+  static const _primaryColorValue = 0xFF0E47A1;
 
   static const primarySwatch = MaterialColor(
     _primaryColorValue,
     {
-      50: Color(0xFFE8F4FE),
-      100: Color(0xFFC6E4FC),
-      200: Color(0xFFA1D2FB),
-      300: Color(0xFF7BC0F9),
-      400: Color(0xFF5EB3F7),
+      050: Color(0xFFE2E9F4),
+      100: Color(0xFFB7C8E3),
+      200: Color(0xFF87A3D0),
+      300: Color(0xFF567EBD),
+      400: Color(0xFF3263AF),
       500: Color(_primaryColorValue),
-      600: Color(0xFF3C9DF5),
-      700: Color(0xFF3393F3),
-      800: Color(0xFF2B8AF2),
-      900: Color(0xFF1D79EF),
+      600: Color(0xFF0C4099),
+      700: Color(0xFF0A378F),
+      800: Color(0xFF082F85),
+      900: Color(0xFF042074),
     },
   );
 
   // Main Colors
   static const primaryColor = Color(_primaryColorValue);
-  static const secondaryColor = Color(0xFF0E47A1);
+  static const secondaryColor = Color(0xFF42A5F6);
 
   // Whites and Blacks
   static const white = Color(0xFFFFFFFF);
