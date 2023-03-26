@@ -15,7 +15,7 @@ class BaseScaffoldMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsPalette.gray100,
+      backgroundColor: ColorsPalette.gray50,
       appBar: AppBar(
         backgroundColor: ColorsPalette.white,
         centerTitle: true,

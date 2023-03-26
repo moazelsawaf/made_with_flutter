@@ -22,7 +22,12 @@ class BaseScaffoldDesktop extends StatelessWidget {
             children: [
               const ScaffoldDesktopHeader(),
               Expanded(child: child),
-              const Credits(),
+              const Padding(
+                padding: EdgeInsets.all(16),
+                child: Credits(
+                  linkColor: ColorsPalette.secondaryColor,
+                ),
+              ),
             ],
           ),
         ],
