@@ -28,7 +28,7 @@ class BaseScaffoldDesktop extends StatelessWidget {
                 child: Credits(
                   color: ColorsPalette.white,
                   linkColor: ColorsPalette.white,
-                  underlineLinks: true,
+                  underlineLinks:  true,
                 ),
               ),
             ],

@@ -16,16 +16,17 @@ class HomeScreenDesktop extends StatelessWidget {
         ),
         child: Align(
           alignment: Alignment.centerLeft,
-          child: SingleChildScrollView(
-            child: Container(
-              width: 500,
-              padding: const EdgeInsets.all(24),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.white,
-              ),
-              child: const FileUploadView(),
+          child: Container(
+            width: 500,
+            constraints: const BoxConstraints(
+              maxHeight: 700,
             ),
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: Colors.white,
+            ),
+            child: const SingleChildScrollView(child: FileUploadView()),
           ),
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:made_with_flutter/ui/widgets/credits.dart';
 
 import '../../widgets/base_scaffold/base_scaffold_mobile/base_scaffold_mobile.dart';
+import '../../widgets/credits.dart';
 import 'views/file_upload_view/file_upload_view.dart';
 
 class HomeScreenMobile extends StatelessWidget {

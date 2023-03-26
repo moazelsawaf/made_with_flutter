@@ -16,6 +16,7 @@ dependencies:
   responsive_builder: ^0.6.4
   dotted_border: ^2.0.0+3
   url_launcher: ^6.1.10
+  lottie: ^2.3.0
 
 dev_dependencies:
   flutter_test:
@@ -28,3 +29,4 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/lottie/
