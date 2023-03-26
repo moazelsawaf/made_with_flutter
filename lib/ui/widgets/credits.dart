@@ -3,15 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../utils/colors_palette.dart';
+import '../../utils/constants.dart';
 
 class Credits extends StatelessWidget {
   final Color color;
   final Color linkColor;
+  final bool underlineLinks;
 
   const Credits({
     super.key,
     this.color = ColorsPalette.gray900,
     this.linkColor = ColorsPalette.primaryColor,
+    this.underlineLinks = false,
   });
 
   @override
@@ -24,18 +27,22 @@ class Credits extends StatelessWidget {
             text: 'Flutter',
             style: TextStyle(
               color: linkColor,
+              decoration: underlineLinks ? TextDecoration.underline : null,
+              decorationColor: linkColor,
             ),
             recognizer: TapGestureRecognizer()
-              ..onTap = () => _openUrl('https://flutter.dev/'),
+              ..onTap = () => _openUrl(Constants.flutterWebsiteUrl),
           ),
           const TextSpan(text: ' & 💙 by '),
           TextSpan(
             text: '@moazelsawaf',
             style: TextStyle(
               color: linkColor,
+              decoration: underlineLinks ? TextDecoration.underline : null,
+              decorationColor: linkColor,
             ),
             recognizer: TapGestureRecognizer()
-              ..onTap = () => _openUrl('https://github.com/moazelsawaf'),
+              ..onTap = () => _openUrl(Constants.authorGitHubUrl),
           ),
         ],
         style: TextStyle(

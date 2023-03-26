@@ -12,7 +12,7 @@ class MobileDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: ColorsPalette.gray100,
+      backgroundColor: ColorsPalette.white,
       surfaceTintColor: Colors.transparent,
       child: SafeArea(
         child: Padding(

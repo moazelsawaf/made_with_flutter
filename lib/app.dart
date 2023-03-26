@@ -13,10 +13,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         primaryColor: ColorsPalette.primaryColor,
+        canvasColor: ColorsPalette.white,
         colorScheme: ColorScheme.fromSwatch(
           primarySwatch: ColorsPalette.primarySwatch,
         ).copyWith(
           secondary: ColorsPalette.secondaryColor,
+          background: ColorsPalette.white,
         ),
       ),
       home: const HomeScreen(),

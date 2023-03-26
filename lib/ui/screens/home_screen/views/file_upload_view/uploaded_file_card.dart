@@ -11,7 +11,7 @@ class UploadedFileCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: ColorsPalette.gray100,
+        color: ColorsPalette.gray50,
         borderRadius: BorderRadius.circular(4),
       ),
       child: Column(

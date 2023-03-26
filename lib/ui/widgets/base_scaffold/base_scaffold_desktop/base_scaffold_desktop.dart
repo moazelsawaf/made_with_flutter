@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:made_with_flutter/ui/widgets/base_scaffold/base_scaffold_desktop/scaffold_desktop_background.dart';
 import 'package:made_with_flutter/utils/colors_palette.dart';
 
 import '../../credits.dart';
@@ -17,7 +18,7 @@ class BaseScaffoldDesktop extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(color: ColorsPalette.primaryColor),
+          const ScaffoldDesktopBackground(),
           Column(
             children: [
               const ScaffoldDesktopHeader(),
@@ -27,6 +28,7 @@ class BaseScaffoldDesktop extends StatelessWidget {
                 child: Credits(
                   color: ColorsPalette.white,
                   linkColor: ColorsPalette.white,
+                  underlineLinks: true,
                 ),
               ),
             ],
