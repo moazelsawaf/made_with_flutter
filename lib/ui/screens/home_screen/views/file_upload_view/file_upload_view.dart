@@ -67,6 +67,16 @@ class FileUploadView extends StatelessWidget {
         TextInput(
           hintText: 'Add file URL',
           controller: TextEditingController(),
+          suffixIcon: TextButton(
+            onPressed: () {},
+            style: TextButton.styleFrom(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+            ),
+            child: const Text('Upload'),
+          ),
         ),
         const SizedBox(height: 24),
         PrimaryButton(

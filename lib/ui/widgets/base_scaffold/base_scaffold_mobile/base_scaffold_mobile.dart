@@ -18,6 +18,7 @@ class BaseScaffoldMobile extends StatelessWidget {
       backgroundColor: ColorsPalette.white,
       appBar: AppBar(
         backgroundColor: ColorsPalette.gray50,
+        surfaceTintColor: Colors.transparent,
         centerTitle: true,
         title: const AppLogo(
           size: 30,
