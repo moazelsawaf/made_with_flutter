@@ -21,7 +21,7 @@ class HomeScreenDesktop extends StatelessWidget {
             constraints: const BoxConstraints(
               maxHeight: 700,
             ),
-            padding: const EdgeInsets.all(24),
+            padding: const EdgeInsets.all(32),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Colors.white,

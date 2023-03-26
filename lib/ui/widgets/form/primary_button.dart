@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../../utils/colors_palette.dart';
 
@@ -18,7 +19,14 @@ class PrimaryButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         elevation: 0,
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        minimumSize: const Size.fromHeight(45),
+        minimumSize: Size.fromHeight(
+          getValueForScreenType<double>(
+            context: context,
+            mobile: 45,
+            desktop: 55,
+            tablet: 55,
+          ),
+        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(4),
         ),
