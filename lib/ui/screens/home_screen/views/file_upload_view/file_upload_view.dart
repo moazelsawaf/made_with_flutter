@@ -42,8 +42,9 @@ class _FileUploadViewState extends State<FileUploadView> {
               const Text(
                 'Made with Flutter?',
                 style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
+                  color: ColorsPalette.primaryColor,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 12),
@@ -113,7 +114,6 @@ class _FileUploadViewState extends State<FileUploadView> {
                 ),
               ),
               const SizedBox(height: 24),
-              // TODO: Take Care of the color in the disabled button state
               PrimaryButton(
                 label: 'Made with Flutter?',
                 onPressed: state is FileUploaded

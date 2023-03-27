@@ -32,6 +32,8 @@ class PrimaryButton extends StatelessWidget {
         ),
         foregroundColor: ColorsPalette.white,
         backgroundColor: ColorsPalette.primaryColor,
+        disabledBackgroundColor: ColorsPalette.gray300,
+        disabledForegroundColor: ColorsPalette.gray700,
         shadowColor: Colors.transparent,
         textStyle: const TextStyle(
           fontWeight: FontWeight.w500,

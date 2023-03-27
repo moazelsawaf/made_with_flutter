@@ -14,7 +14,7 @@ class UploadedFileCard extends StatelessWidget {
     required this.fileName,
     required this.fileSize,
     required this.onRemove,
-    this.hasError = false, // TODO: Design the error state
+    this.hasError = false,
     this.uploadedFileSize,
   });
 
@@ -23,18 +23,27 @@ class UploadedFileCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: ColorsPalette.gray50,
+        color: hasError
+            ? ColorsPalette.red.withOpacity(0.05)
+            : ColorsPalette.gray50,
         borderRadius: BorderRadius.circular(4),
       ),
       child: Column(
         children: [
           Row(
             children: [
-              const Icon(
-                Icons.insert_drive_file_outlined,
-                color: ColorsPalette.primaryColor,
-                size: 32,
-              ),
+              if (hasError)
+                const Icon(
+                  Icons.error_outline_rounded,
+                  color: ColorsPalette.red,
+                  size: 32,
+                )
+              else
+                const Icon(
+                  Icons.insert_drive_file_outlined,
+                  color: ColorsPalette.primaryColor,
+                  size: 32,
+                ),
               const SizedBox(width: 16),
               Expanded(
                 child: Column(

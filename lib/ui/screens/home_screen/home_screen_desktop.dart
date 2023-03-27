@@ -34,7 +34,10 @@ class HomeScreenDesktop extends StatelessWidget {
               child: BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
                   if (state is HomeLoading) {
-                    return const LoadingView();
+                    return const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      child: LoadingView(),
+                    );
                   } else if (state is HomeResult) {
                     return const Padding(
                       padding: EdgeInsets.all(16),

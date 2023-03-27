@@ -10,5 +10,5 @@ class AssetsManager {
   static const desktopBackground = '$_imagesFolder/desktop_background.jpg';
 
   // Lottie
-  static const robotLoading = '$_lottieFolder/robot_loading.json';
+  static const filesProcessing = '$_lottieFolder/files_processing.json';
 }
