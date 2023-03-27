@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../utils/colors_palette.dart';
 import '../../utils/constants.dart';
+import '../../utils/helpers.dart';
 
 class Credits extends StatelessWidget {
   final Color color;
@@ -33,7 +33,7 @@ class Credits extends StatelessWidget {
                   decorationColor: linkColor,
                 ),
                 recognizer: TapGestureRecognizer()
-                  ..onTap = () => _openUrl(Constants.flutterWebsiteUrl),
+                  ..onTap = () => Helpers.openUrl(Constants.flutterWebsiteUrl),
               ),
               const TextSpan(text: ' & 💙 by '),
               TextSpan(
@@ -44,7 +44,7 @@ class Credits extends StatelessWidget {
                   decorationColor: linkColor,
                 ),
                 recognizer: TapGestureRecognizer()
-                  ..onTap = () => _openUrl(Constants.authorGitHubUrl),
+                  ..onTap = () => Helpers.openUrl(Constants.authorGitHubUrl),
               ),
             ],
             style: TextStyle(
@@ -56,7 +56,7 @@ class Credits extends StatelessWidget {
         ),
         const SizedBox(height: 6),
         Text(
-          'V 1.0.2 - Copyright © 2023 All Rights Reserved',
+          'V 1.0.3 - Copyright © 2023 All Rights Reserved',
           style: TextStyle(
             color: color,
             fontSize: 12,
@@ -65,11 +65,5 @@ class Credits extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  void _openUrl(String url) async {
-    try {
-      await launchUrl(Uri.parse(url));
-    } catch (_) {}
   }
 }

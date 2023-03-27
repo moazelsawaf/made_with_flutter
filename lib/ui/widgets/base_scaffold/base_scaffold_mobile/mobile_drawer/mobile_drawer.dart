@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:made_with_flutter/utils/colors_palette.dart';
 
+import '../../../../../utils/constants.dart';
 import '../../../../../utils/helpers.dart';
 import '../../../app_logo.dart';
 import 'mobile_drawer_item.dart';
@@ -41,7 +42,9 @@ class MobileDrawer extends StatelessWidget {
               ),
               MobileDrawerItem(
                 label: 'Repository',
-                onTap: () => Helpers.showComingSoonToast(context),
+                onTap: () => Helpers.openUrl(
+                  Constants.gitHubRepositoryUrl,
+                ),
               ),
             ],
           ),

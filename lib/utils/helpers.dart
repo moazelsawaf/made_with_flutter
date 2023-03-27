@@ -1,5 +1,6 @@
 import 'package:archive/archive.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'toasts.dart';
 
@@ -30,6 +31,12 @@ class Helpers {
   static String getFileNameWithoutExtension(String fileName) {
     final extensionStartIndex = fileName.lastIndexOf('.');
     return fileName.substring(0, extensionStartIndex);
+  }
+
+  static void openUrl(String url) async {
+    try {
+      await launchUrl(Uri.parse(url));
+    } catch (_) {}
   }
 
   static void showComingSoonToast(BuildContext context) {
