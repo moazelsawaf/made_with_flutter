@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:made_with_flutter/ui/screens/home_screen/views/file_upload_view/file_upload_view.dart';
 
+import '../../../cubits/home_cubit/home_cubit.dart';
 import '../../widgets/base_scaffold/base_scaffold_desktop/base_scaffold_desktop.dart';
+import 'views/loading_view/loading_view.dart';
+import 'views/result_view/result_view.dart';
 
 class HomeScreenDesktop extends StatelessWidget {
   const HomeScreenDesktop({super.key});
@@ -26,7 +30,22 @@ class HomeScreenDesktop extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               color: Colors.white,
             ),
-            child: const SingleChildScrollView(child: FileUploadView()),
+            child: SingleChildScrollView(
+              child: BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  if (state is HomeLoading) {
+                    return const LoadingView();
+                  } else if (state is HomeResult) {
+                    return const Padding(
+                      padding: EdgeInsets.all(16),
+                      child: ResultView(),
+                    );
+                  } else {
+                    return const FileUploadView();
+                  }
+                },
+              ),
+            ),
           ),
         ),
       ),

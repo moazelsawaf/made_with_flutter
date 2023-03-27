@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:made_with_flutter/utils/colors_palette.dart';
+import 'package:made_with_flutter/utils/helpers.dart';
 
 class UploadedFileCard extends StatelessWidget {
+  final String fileName;
+  final int fileSize;
+  final VoidCallback onRemove;
+  final bool hasError;
+  final int? uploadedFileSize;
+
   const UploadedFileCard({
     super.key,
+    required this.fileName,
+    required this.fileSize,
+    required this.onRemove,
+    this.hasError = false, // TODO: Design the error state
+    this.uploadedFileSize,
   });
 
   @override
@@ -23,26 +35,28 @@ class UploadedFileCard extends StatelessWidget {
                 color: ColorsPalette.primaryColor,
                 size: 32,
               ),
-              const SizedBox(width: 12),
+              const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
-                      'android.apk',
-                      maxLines: 1,
+                      fileName,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
-                      '1.2KB - 2 seconds left',
+                      uploadedFileSize != null
+                          ? '${Helpers.formatFileSize(uploadedFileSize!)} / ${Helpers.formatFileSize(fileSize)}'
+                          : Helpers.formatFileSize(fileSize),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: ColorsPalette.gray700,
                         fontSize: 12,
                       ),
@@ -59,7 +73,7 @@ class UploadedFileCard extends StatelessWidget {
                       color: Colors.transparent,
                       child: InkResponse(
                         customBorder: const CircleBorder(),
-                        onTap: () {},
+                        onTap: onRemove,
                         child: const Icon(
                           Icons.close,
                           color: ColorsPalette.gray800,
@@ -68,31 +82,37 @@ class UploadedFileCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  const Text(
-                    '23%',
-                    style: TextStyle(
-                      color: ColorsPalette.gray700,
-                      fontSize: 12,
+                  if (uploadedFileSize != null) ...[
+                    const SizedBox(height: 8),
+                    Text(
+                      _progressText,
+                      style: const TextStyle(
+                        color: ColorsPalette.gray700,
+                        fontSize: 12,
+                      ),
                     ),
-                  )
+                  ],
                 ],
               )
             ],
           ),
-          const SizedBox(height: 12),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: const LinearProgressIndicator(
-              value: 0.75,
-              backgroundColor: ColorsPalette.gray300,
-              valueColor: AlwaysStoppedAnimation<Color>(
-                ColorsPalette.primaryColor,
+          if (uploadedFileSize != null) ...[
+            const SizedBox(height: 12),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: LinearProgressIndicator(
+                value: uploadedFileSize! / fileSize,
+                backgroundColor: ColorsPalette.gray300,
               ),
             ),
-          ),
+          ],
         ],
       ),
     );
+  }
+
+  String get _progressText {
+    final progress = uploadedFileSize! / fileSize * 100;
+    return '${progress.toStringAsFixed(2)}%';
   }
 }
