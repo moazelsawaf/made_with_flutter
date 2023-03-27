@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:made_with_flutter/utils/helpers.dart';
 
+import '../../../../../utils/constants.dart';
 import '../../../app_logo.dart';
 import 'header_buttons_bar/header_buttons_bar.dart';
 
@@ -31,7 +32,9 @@ class ScaffoldDesktopHeader extends StatelessWidget {
               ),
               HeaderButtonData(
                 label: 'Repository',
-                onPressed: () => Helpers.showComingSoonToast(context),
+                onPressed: () => Helpers.openUrl(
+                  Constants.gitHubRepositoryUrl,
+                ),
               ),
             ],
           ),
