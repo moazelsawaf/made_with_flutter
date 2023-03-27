@@ -1,3 +1,5 @@
+import 'package:archive/archive.dart';
+
 class Helpers {
   Helpers._();
 
@@ -16,5 +18,14 @@ class Helpers {
     } else {
       return '${(fileSizeInBytes / 1073741824).toStringAsFixed(2)} GB';
     }
+  }
+
+  static bool isAppIconFile(ArchiveFile file) {
+    return file.name.contains('res/mipmap') && file.name.endsWith('.png');
+  }
+
+  static String getFileNameWithoutExtension(String fileName) {
+    final extensionStartIndex = fileName.lastIndexOf('.');
+    return fileName.substring(0, extensionStartIndex);
   }
 }

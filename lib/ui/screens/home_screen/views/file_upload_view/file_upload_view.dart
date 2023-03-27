@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:made_with_flutter/cubits/home_cubit/home_cubit.dart';
 
 import '../../../../../cubits/file_upload_cubit/file_upload_cubit.dart';
 import '../../../../../utils/colors_palette.dart';
@@ -102,31 +103,30 @@ class _FileUploadViewState extends State<FileUploadView> {
                 ),
               ),
               const SizedBox(height: 24),
+              // TODO: Take Care of the color in the disabled button state
               PrimaryButton(
                 label: 'Made with Flutter?',
-                onPressed: () async {
-                  // final fileName =
-                  //     await _cubit.dropzoneViewController.getFilename(_file);
-                  // final fileData =
-                  //     await _cubit.dropzoneViewController.getFileData(_file);
-                  // final fileLastModified = await _cubit.dropzoneViewController
-                  //     .getFileLastModified(_file);
-                  // final fileMIME =
-                  //     await _cubit.dropzoneViewController.getFileMIME(_file);
-                  // final fileSize =
-                  //     await _cubit.dropzoneViewController.getFileSize(_file);
-
-                  // log('fileName: $fileName');
-                  // log('fileData: $fileData');
-                  // log('fileLastModified: $fileLastModified');
-                  // log('fileMIME: $fileMIME');
-                  // log('fileSize: $fileSize');
-                },
+                onPressed: state is FileUploaded
+                    ? () => _analyzeFile(
+                          fileName: state.fileName,
+                          fileBytes: state.fileBytes,
+                        )
+                    : null,
               ),
             ],
           );
         },
       ),
     );
+  }
+
+  void _analyzeFile({
+    required String fileName,
+    required List<int> fileBytes,
+  }) {
+    context.read<HomeCubit>().analyzeFile(
+          fileName: fileName,
+          fileBytes: fileBytes,
+        );
   }
 }

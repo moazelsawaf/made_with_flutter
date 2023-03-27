@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:made_with_flutter/ui/widgets/app_logo.dart';
 
-import '../../../../../cubits/home_cubit/home_cubit.dart';
+import '../../../app_logo.dart';
 import 'header_buttons_bar/header_buttons_bar.dart';
 
 class ScaffoldDesktopHeader extends StatelessWidget {
@@ -22,21 +20,15 @@ class ScaffoldDesktopHeader extends StatelessWidget {
             buttons: [
               HeaderButtonData(
                 label: 'About',
-                onPressed: () {
-                  context.read<HomeCubit>().emitState(HomeInitial());
-                },
+                onPressed: () {},
               ),
               HeaderButtonData(
                 label: 'How it Works?',
-                onPressed: () {
-                  context.read<HomeCubit>().emitState(HomeLoading());
-                },
+                onPressed: () {},
               ),
               HeaderButtonData(
                 label: 'Repository',
-                onPressed: () {
-                  context.read<HomeCubit>().emitState(HomeResult());
-                },
+                onPressed: () {},
               ),
             ],
           ),

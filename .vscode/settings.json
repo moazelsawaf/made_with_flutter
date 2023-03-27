@@ -1,6 +1,8 @@
 {
     "dart.flutterSdkPath": "D:\\Development\\Flutter-SDK\\versions\\3.7.7",
     "cSpell.words": [
-        "Dropzone"
+        "armeabi",
+        "Dropzone",
+        "libflutter"
     ]
 }

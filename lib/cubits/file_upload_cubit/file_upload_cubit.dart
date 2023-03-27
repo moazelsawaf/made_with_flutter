@@ -19,6 +19,7 @@ class FileUploadCubit extends Cubit<FileUploadState> {
     List<int> fileBytes = [];
 
     _fileUploadSubscription = fileDataStream.listen(
+      cancelOnError: true,
       (bytes) {
         fileBytes.addAll(bytes);
 
