@@ -1,4 +1,7 @@
 import 'package:archive/archive.dart';
+import 'package:flutter/material.dart';
+
+import 'toasts.dart';
 
 class Helpers {
   Helpers._();
@@ -27,5 +30,13 @@ class Helpers {
   static String getFileNameWithoutExtension(String fileName) {
     final extensionStartIndex = fileName.lastIndexOf('.');
     return fileName.substring(0, extensionStartIndex);
+  }
+
+  static void showComingSoonToast(BuildContext context) {
+    Toasts.info(
+      context: context,
+      title: 'Coming Soon ...',
+      message: 'Coming Soon, stay tuned!',
+    );
   }
 }

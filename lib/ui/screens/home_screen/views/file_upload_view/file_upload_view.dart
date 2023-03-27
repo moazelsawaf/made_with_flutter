@@ -100,7 +100,9 @@ class _FileUploadViewState extends State<FileUploadView> {
               ),
               const SizedBox(height: 12),
               TextInput(
-                hintText: 'Add file URL',
+                enabled: false,
+                // hintText: 'Add file URL',
+                hintText: 'Coming Soon ...',
                 controller: TextEditingController(),
                 suffixIcon: TextButton(
                   onPressed: () {},

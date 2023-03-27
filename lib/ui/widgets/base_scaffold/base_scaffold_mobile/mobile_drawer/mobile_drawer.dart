@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:made_with_flutter/utils/colors_palette.dart';
 
+import '../../../../../utils/helpers.dart';
 import '../../../app_logo.dart';
 import 'mobile_drawer_item.dart';
 
@@ -32,15 +33,15 @@ class MobileDrawer extends StatelessWidget {
               const SizedBox(height: 48),
               MobileDrawerItem(
                 label: 'About',
-                onTap: () {},
+                onTap: () => Helpers.showComingSoonToast(context),
               ),
               MobileDrawerItem(
                 label: 'How it Works?',
-                onTap: () {},
+                onTap: () => Helpers.showComingSoonToast(context),
               ),
               MobileDrawerItem(
                 label: 'Repository',
-                onTap: () {},
+                onTap: () => Helpers.showComingSoonToast(context),
               ),
             ],
           ),
