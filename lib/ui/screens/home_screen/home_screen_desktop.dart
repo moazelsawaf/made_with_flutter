@@ -16,7 +16,7 @@ class HomeScreenDesktop extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 120,
-          vertical: 48,
+          vertical: 32,
         ),
         child: Align(
           alignment: Alignment.centerLeft,
