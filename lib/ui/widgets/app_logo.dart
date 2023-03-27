@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:made_with_flutter/utils/assets_manager.dart';
 
 enum AppLogoType { colored, white }
@@ -16,7 +15,7 @@ class AppLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
+    return Image.asset(
       _logo,
       width: size,
       height: size,

@@ -3,7 +3,7 @@ description: Made with Flutter is an open source tool that lets you know if an A
 
 publish_to: "none"
 
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: ">=2.19.3 <3.0.0"
@@ -22,7 +22,6 @@ dependencies:
   flutter_dropzone: ^3.0.5
   archive: ^3.3.6
   elegant_notification: ^1.8.1
-  flutter_svg: ^2.0.4
 
 dev_dependencies:
   flutter_test:
@@ -35,4 +34,5 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/app_logo/
     - assets/lottie/
