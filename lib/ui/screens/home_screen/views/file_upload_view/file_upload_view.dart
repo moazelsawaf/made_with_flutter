@@ -54,6 +54,28 @@ class _FileUploadViewState extends State<FileUploadView> {
               const SizedBox(height: 24),
               const FileDropZone(),
               const SizedBox(height: 24),
+              const Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: 'Note: ',
+                      style: TextStyle(
+                        color: ColorsPalette.primaryColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextSpan(
+                      text:
+                          'The files are not uploaded to any server, they are processed locally on your machine.',
+                    ),
+                  ],
+                  style: TextStyle(
+                    color: ColorsPalette.gray900,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
               if (state is! FileUploadInitial && state is! FileRemoved) ...[
                 UploadedFileCard(
                   fileName: state.fileName,
