@@ -57,81 +57,87 @@ class _FileDropZoneState extends State<FileDropZone> {
                       _isMobile ? (_) {} : cubit.onDropMultipleFiles,
                 ),
               ),
-              GestureDetector(
-                onTap: _isMobile ? cubit.onChooseFileClicked : null,
-                child: DottedBorder(
-                  padding: EdgeInsets.zero,
-                  radius: const Radius.circular(6),
-                  borderType: BorderType.RRect,
-                  dashPattern: state is FileDropZoneHovered ? [6, 0] : [6, 3],
-                  color: _getBorderColor(state),
-                  strokeWidth: _getBorderWidth(state),
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6),
-                      color: _getBackgroundColor(state),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 32),
-                      child: Column(
-                        children: [
-                          Icon(
-                            state is DropZoneInitializationError
-                                ? Icons.error_outline_rounded
-                                : Icons.file_upload_outlined,
-                            color: _getBorderColor(state),
-                            size: 30,
-                          ),
-                          const SizedBox(height: 12),
-                          Text.rich(
-                            TextSpan(
-                              children: [
-                                if (_isMobile)
-                                  const TextSpan(
-                                    text: 'Tap to choose file to upload',
-                                  )
-                                else if (state
-                                    is DropZoneInitializationError) ...[
-                                  const TextSpan(
-                                    text: 'An error occurred',
-                                    style: TextStyle(
-                                      color: ColorsPalette.red,
+              Material(
+                color:
+                    _isMobile ? ColorsPalette.primaryColor : Colors.transparent,
+                borderRadius: const BorderRadius.all(Radius.circular(6)),
+                child: InkWell(
+                  onTap: _isMobile ? cubit.onChooseFileClicked : null,
+                  child: DottedBorder(
+                    padding: EdgeInsets.zero,
+                    radius: const Radius.circular(6),
+                    borderType: BorderType.RRect,
+                    dashPattern: state is FileDropZoneHovered ? [6, 0] : [6, 3],
+                    color:
+                        _isMobile ? Colors.transparent : _getBorderColor(state),
+                    strokeWidth: _getBorderWidth(state),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6),
+                        color: _getBackgroundColor(state),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 32),
+                        child: Column(
+                          children: [
+                            Icon(
+                              state is DropZoneInitializationError
+                                  ? Icons.error_outline_rounded
+                                  : Icons.file_upload_outlined,
+                              color: _getBorderColor(state),
+                              size: 30,
+                            ),
+                            const SizedBox(height: 12),
+                            Text.rich(
+                              TextSpan(
+                                children: [
+                                  if (_isMobile)
+                                    const TextSpan(
+                                      text: 'Tap to choose file to upload',
+                                    )
+                                  else if (state
+                                      is DropZoneInitializationError) ...[
+                                    const TextSpan(
+                                      text: 'An error occurred',
+                                      style: TextStyle(
+                                        color: ColorsPalette.red,
+                                      ),
                                     ),
-                                  ),
-                                ] else ...[
-                                  const TextSpan(text: 'Drag & Drop or'),
-                                  TextSpan(
-                                    text: ' Choose File ',
-                                    style: const TextStyle(
-                                      color: ColorsPalette.primaryColor,
+                                  ] else ...[
+                                    const TextSpan(text: 'Drag & Drop or'),
+                                    TextSpan(
+                                      text: ' Choose File ',
+                                      style: const TextStyle(
+                                        color: ColorsPalette.primaryColor,
+                                      ),
+                                      recognizer: TapGestureRecognizer()
+                                        ..onTap = cubit.onChooseFileClicked,
                                     ),
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = cubit.onChooseFileClicked,
-                                  ),
-                                  const TextSpan(text: 'to upload'),
+                                    const TextSpan(text: 'to upload'),
+                                  ],
                                 ],
-                              ],
-                              style: TextStyle(
-                                color: _isMobile
-                                    ? ColorsPalette.white
-                                    : ColorsPalette.gray900,
+                                style: TextStyle(
+                                  color: _isMobile
+                                      ? ColorsPalette.white
+                                      : ColorsPalette.gray900,
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            state is DropZoneInitializationError
-                                ? 'Please try to restart the page'
-                                : 'APK or AAB',
-                            style: TextStyle(
-                              color: _isMobile
-                                  ? ColorsPalette.gray200
-                                  : ColorsPalette.gray600,
-                              fontSize: 12,
+                            const SizedBox(height: 12),
+                            Text(
+                              state is DropZoneInitializationError
+                                  ? 'Please try to restart the page'
+                                  : 'APK or AAB',
+                              style: TextStyle(
+                                color: _isMobile
+                                    ? ColorsPalette.gray200
+                                    : ColorsPalette.gray600,
+                                fontSize: 12,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -156,7 +162,7 @@ class _FileDropZoneState extends State<FileDropZone> {
 
   Color _getBackgroundColor(FileDropZoneState state) {
     if (_isMobile) {
-      return ColorsPalette.primaryColor;
+      return Colors.transparent;
     } else if (state is FileDropZoneHovered) {
       return ColorsPalette.primaryColor.withOpacity(0.05);
     } else if (state is DropZoneInitializationError) {

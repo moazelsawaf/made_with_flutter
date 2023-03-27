@@ -51,9 +51,9 @@ class _FileUploadViewState extends State<FileUploadView> {
               const Text(
                 'Upload your APK/AAB file to see whether it was made with Flutter or not',
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
               const FileDropZone(),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
               const Text.rich(
                 TextSpan(
                   children: [
@@ -75,7 +75,7 @@ class _FileUploadViewState extends State<FileUploadView> {
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
               if (state is! FileUploadInitial && state is! FileRemoved) ...[
                 UploadedFileCard(
                   fileName: state.fileName,
@@ -113,7 +113,7 @@ class _FileUploadViewState extends State<FileUploadView> {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
               const Text(
                 'Import from a URL',
                 style: TextStyle(
