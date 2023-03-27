@@ -3,7 +3,7 @@ description: Made with Flutter is an open source tool that lets you know if an A
 
 publish_to: "none"
 
-version: 1.0.2+3
+version: 1.0.3+4
 
 environment:
   sdk: ">=2.19.3 <3.0.0"
