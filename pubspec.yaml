@@ -21,6 +21,7 @@ dependencies:
   flutter_bloc: ^8.1.2
   flutter_dropzone: ^3.0.5
   archive: ^3.3.6
+  elegant_notification: ^1.8.1
 
 dev_dependencies:
   flutter_test:

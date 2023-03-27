@@ -6,7 +6,7 @@ class FileDropZoneInitial extends FileDropZoneState {}
 
 class FileDropZoneHovered extends FileDropZoneState {}
 
-class FileDropZoneError extends FileDropZoneState {}
+class DropZoneInitializationError extends FileDropZoneState {}
 
 class FileDropZoneSelected extends FileDropZoneState {
   final String fileName;
@@ -17,5 +17,15 @@ class FileDropZoneSelected extends FileDropZoneState {
     required this.fileName,
     required this.fileSize,
     required this.fileDataStream,
+  });
+}
+
+class InvalidFileDropped extends FileDropZoneState {
+  final String errorTitle;
+  final String errorMessage;
+
+  InvalidFileDropped({
+    required this.errorTitle,
+    required this.errorMessage,
   });
 }

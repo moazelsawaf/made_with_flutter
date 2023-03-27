@@ -47,6 +47,9 @@ class FileUploadCubit extends Cubit<FileUploadState> {
           FileUploadError(
             fileName: fileName,
             fileSize: fileSize,
+            errorTitle: 'An Error Occurred',
+            errorMessage:
+                'An error occurred while uploading the file, please try again',
           ),
         );
       },

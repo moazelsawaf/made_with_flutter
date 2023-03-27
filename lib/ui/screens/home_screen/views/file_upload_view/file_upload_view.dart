@@ -4,6 +4,7 @@ import 'package:made_with_flutter/cubits/home_cubit/home_cubit.dart';
 
 import '../../../../../cubits/file_upload_cubit/file_upload_cubit.dart';
 import '../../../../../utils/colors_palette.dart';
+import '../../../../../utils/toasts.dart';
 import '../../../../widgets/form/primary_button.dart';
 import '../../../../widgets/form/text_input.dart';
 import 'file_drop_zone.dart';
@@ -23,7 +24,16 @@ class _FileUploadViewState extends State<FileUploadView> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => FileUploadCubit(),
-      child: BlocBuilder<FileUploadCubit, FileUploadState>(
+      child: BlocConsumer<FileUploadCubit, FileUploadState>(
+        listener: (context, state) {
+          if (state is FileUploadError) {
+            Toasts.error(
+              context: context,
+              title: state.errorTitle,
+              message: state.errorMessage,
+            );
+          }
+        },
         builder: (context, state) {
           _cubit = context.read<FileUploadCubit>();
           return Column(

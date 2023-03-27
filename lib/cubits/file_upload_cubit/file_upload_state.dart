@@ -20,7 +20,7 @@ class FileUploading extends FileUploadState {
   FileUploading({
     required String fileName,
     required int fileSize,
-    required this. uploadedFileSize,
+    required this.uploadedFileSize,
   }) : super(
           fileName: fileName,
           fileSize: fileSize,
@@ -41,9 +41,14 @@ class FileUploaded extends FileUploadState {
 }
 
 class FileUploadError extends FileUploadState {
+  final String errorTitle;
+  final String errorMessage;
+
   FileUploadError({
     required String fileName,
     required int fileSize,
+    required this.errorTitle,
+    required this.errorMessage,
   }) : super(
           fileName: fileName,
           fileSize: fileSize,

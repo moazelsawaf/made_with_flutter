@@ -6,6 +6,7 @@ import 'package:flutter_dropzone/flutter_dropzone.dart';
 import 'package:made_with_flutter/cubits/file_drop_zone/file_drop_zone_cubit.dart';
 import 'package:made_with_flutter/cubits/file_upload_cubit/file_upload_cubit.dart';
 import 'package:made_with_flutter/utils/extensions.dart';
+import 'package:made_with_flutter/utils/toasts.dart';
 
 import '../../../../../utils/colors_palette.dart';
 
@@ -18,7 +19,7 @@ class FileDropZone extends StatefulWidget {
 
 class _FileDropZoneState extends State<FileDropZone> {
   late bool _isMobile;
-  
+
   @override
   Widget build(BuildContext context) {
     _isMobile = MediaQuery.of(context).size.isMobile;
@@ -32,8 +33,12 @@ class _FileDropZoneState extends State<FileDropZone> {
                   fileSize: state.fileSize,
                   fileDataStream: state.fileDataStream,
                 );
-          } else if (state is FileUploadError) {
-            // TODO: Show error message
+          } else if (state is InvalidFileDropped) {
+            Toasts.error(
+              context: context,
+              title: state.errorTitle,
+              message: state.errorMessage,
+            );
           }
         },
         builder: (context, state) {
@@ -72,7 +77,7 @@ class _FileDropZoneState extends State<FileDropZone> {
                       child: Column(
                         children: [
                           Icon(
-                            state is FileDropZoneError
+                            state is DropZoneInitializationError
                                 ? Icons.error_outline_rounded
                                 : Icons.file_upload_outlined,
                             color: _getBorderColor(state),
@@ -86,7 +91,8 @@ class _FileDropZoneState extends State<FileDropZone> {
                                   const TextSpan(
                                     text: 'Tap to choose file to upload',
                                   )
-                                else if (state is FileDropZoneError) ...[
+                                else if (state
+                                    is DropZoneInitializationError) ...[
                                   const TextSpan(
                                     text: 'An error occurred',
                                     style: TextStyle(
@@ -115,7 +121,7 @@ class _FileDropZoneState extends State<FileDropZone> {
                           ),
                           const SizedBox(height: 12),
                           Text(
-                            state is FileDropZoneError
+                            state is DropZoneInitializationError
                                 ? 'Please try to restart the page'
                                 : 'APK or AAB',
                             style: TextStyle(
@@ -153,7 +159,7 @@ class _FileDropZoneState extends State<FileDropZone> {
       return ColorsPalette.primaryColor;
     } else if (state is FileDropZoneHovered) {
       return ColorsPalette.primaryColor.withOpacity(0.05);
-    } else if (state is FileDropZoneError) {
+    } else if (state is DropZoneInitializationError) {
       return ColorsPalette.red.withOpacity(0.05);
     } else {
       return Colors.transparent;
@@ -165,7 +171,7 @@ class _FileDropZoneState extends State<FileDropZone> {
       return ColorsPalette.gray200;
     } else if (state is FileDropZoneHovered) {
       return ColorsPalette.primaryColor;
-    } else if (state is FileDropZoneError) {
+    } else if (state is DropZoneInitializationError) {
       return Colors.red;
     } else {
       return ColorsPalette.gray500;

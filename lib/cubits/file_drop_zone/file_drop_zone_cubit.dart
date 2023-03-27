@@ -16,15 +16,15 @@ class FileDropZoneCubit extends Cubit<FileDropZoneState> {
     dropzoneViewController = controller;
   }
 
-  void setErrorDropZone() => emit(FileDropZoneError());
+  void setErrorDropZone() => emit(DropZoneInitializationError());
 
   void setInitialDropZone() {
-    if (state is FileDropZoneError) return;
+    if (state is DropZoneInitializationError) return;
     emit(FileDropZoneInitial());
   }
 
   void setHoveredDropZone() {
-    if (state is FileDropZoneError) return;
+    if (state is DropZoneInitializationError) return;
     emit(FileDropZoneHovered());
   }
 
@@ -33,17 +33,30 @@ class FileDropZoneCubit extends Cubit<FileDropZoneState> {
       // This one to remove the hover effect after dropping the file
       setInitialDropZone();
 
-      if (state is FileDropZoneError || files == null || files.isEmpty) return;
+      if (state is DropZoneInitializationError ||
+          files == null ||
+          files.isEmpty) return;
 
       if (files.length > 1) {
-        // TODO: Show an error message here because we only accept one file
-        log('More than one file was dropped');
+        emit(
+          InvalidFileDropped(
+            errorTitle: 'Multiple Files Dropped',
+            errorMessage: 'Only one file is allowed at a time',
+          ),
+        );
         return;
       }
 
       _processFile(files.first);
     } catch (e) {
       log('Error: $e');
+
+      emit(
+        InvalidFileDropped(
+          errorTitle: 'An Error Occurred',
+          errorMessage: 'An error occurred, please try again',
+        ),
+      );
     }
   }
 
@@ -56,6 +69,13 @@ class FileDropZoneCubit extends Cubit<FileDropZoneState> {
       _processFile(files.first);
     } catch (e) {
       log('Error: $e');
+
+      emit(
+        InvalidFileDropped(
+          errorTitle: 'An Error Occurred',
+          errorMessage: 'An error occurred, please try again',
+        ),
+      );
     }
   }
 
@@ -63,8 +83,12 @@ class FileDropZoneCubit extends Cubit<FileDropZoneState> {
     final fileName = await dropzoneViewController.getFilename(htmlFile);
 
     if (!Helpers.isAPKOrAABFile(fileName)) {
-      // TODO: Show an error message here because we only accept APK or AAB files
-      log('File is not an APK or AAB file');
+      emit(
+        InvalidFileDropped(
+          errorTitle: 'Invalid File Type',
+          errorMessage: 'Only APK or AAB files are allowed',
+        ),
+      );
       return;
     }
 
