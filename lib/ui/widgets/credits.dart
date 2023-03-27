@@ -56,7 +56,7 @@ class Credits extends StatelessWidget {
         ),
         const SizedBox(height: 6),
         Text(
-          'V 1.0.0 - Copyright © 2023 All Rights Reserved',
+          'V 1.0.2 - Copyright © 2023 All Rights Reserved',
           style: TextStyle(
             color: color,
             fontSize: 12,
