@@ -23,7 +23,7 @@ class ColorsPalette {
 
   // Main Colors
   static const primaryColor = Color(_primaryColorValue);
-  static const secondaryColor = Color(0xFF42A5F6);
+  static const secondaryColor = Color(0xFFFCB732);
 
   // Whites and Blacks
   static const white = Color(0xFFFFFFFF);

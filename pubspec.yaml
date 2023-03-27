@@ -1,5 +1,5 @@
 name: made_with_flutter
-description: Made with Flutter is a tool that lets you know if an APK/APP was made with Flutter or not.
+description: Made with Flutter is an open source tool that lets you know if an APK/APP was made with Flutter or not.
 
 publish_to: "none"
 
@@ -22,6 +22,7 @@ dependencies:
   flutter_dropzone: ^3.0.5
   archive: ^3.3.6
   elegant_notification: ^1.8.1
+  flutter_svg: ^2.0.4
 
 dev_dependencies:
   flutter_test:

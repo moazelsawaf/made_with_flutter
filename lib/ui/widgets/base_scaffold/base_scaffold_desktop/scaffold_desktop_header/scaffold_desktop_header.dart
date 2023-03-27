@@ -11,10 +11,12 @@ class ScaffoldDesktopHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(24),
       child: Row(
         children: [
-          const AppLogo(),
+          const AppLogo(
+            type: AppLogoType.white,
+          ),
           const Spacer(),
           HeaderButtonsBar(
             buttons: [

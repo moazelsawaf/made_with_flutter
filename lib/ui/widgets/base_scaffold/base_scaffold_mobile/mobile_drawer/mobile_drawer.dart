@@ -12,15 +12,24 @@ class MobileDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(10),
+          bottomRight: Radius.circular(10),
+        ),
+      ),
       backgroundColor: ColorsPalette.white,
       surfaceTintColor: Colors.transparent,
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 32),
+          padding: const EdgeInsets.only(
+            top: 64,
+            bottom: 24,
+          ),
           child: Column(
             children: [
-              const AppLogo(size: 50),
-              const SizedBox(height: 32),
+              const AppLogo(size: 125),
+              const SizedBox(height: 48),
               MobileDrawerItem(
                 label: 'About',
                 onTap: () {},
